@@ -1,7 +1,11 @@
+import 'package:auth_project/Screens/Activities/details_screen.dart';
 import 'package:auth_project/Screens/Signup/signup_screen.dart';
+import 'package:auth_project/Screens/ToDo/HomePage.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../details_screen.dart';
+import '../home_screen.dart';
 
 class DrawerScreen extends StatefulWidget {
   @override
@@ -43,57 +47,71 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ),
             Column(
               children: <Widget>[
-                NewRow(
-                  text: 'Acceuil',
-                  icon: Icons.home,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                NewRow(
-                  text: 'Profile',
-                  icon: Icons.person_outline,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                NewRow(
-                  text: 'Activités',
-                  icon: Icons.local_activity,
-                  onPressed: () {
+                ListTile(
+                  title: Text(
+                    'Accueil',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return SignUpScreen();
+                          return HomeScreen();
                         },
                       ),
                     );
                   },
                 ),
-                SizedBox(
-                  height: 20,
+                ListTile(
+                  title: Text(
+                    'ToDo',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return HomePage();
+                        },
+                      ),
+                    );
+                  },
                 ),
-                NewRow(
-                  text: 'Saved',
-                  icon: Icons.bookmark_border,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                NewRow(
-                  text: 'Favorites',
-                  icon: Icons.favorite_border,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                NewRow(
-                  text: 'Hint',
-                  icon: Icons.lightbulb_outline,
-                ),
-                SizedBox(
-                  height: 20,
+                ListTile(
+                  title: Text(
+                    'Activities',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ActivitiesScreen();
+                        },
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -109,7 +127,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 Text(
                   'Log out',
                   style: TextStyle(color: Colors.white.withOpacity(0.5)),
-                )
+                ),
               ],
             )
           ],
